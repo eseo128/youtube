@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import styles from './app.module.css';
 import SearchHeader from './components/search_header/search_header';
 import VideoDetail from './components/video_detail/video_detail';
@@ -12,23 +12,21 @@ function App({youtube}) {
     setSelectedVideo(video);
   }
 
-  const search = query => {
-    setSelectedVideo(null); // 동영상을 선택해서 보고있을 때 화면에서 또 다른 검색하면 이전 리스트 모양으로 돌아가기
-    //포스트맨 search API 불러오기
-    youtube
-      .search(query)//
-      .then(videos => {
-        setVideos(videos);
-        
-      });
-  };
+  const search = useCallback(
+    query => {
+      setSelectedVideo(null); // 동영상을 선택해서 보고있을 때 화면에서 또 다른 검색하면 이전 리스트 모양으로 돌아가기
+      youtube
+        .search(query)//
+        .then(videos => {
+          setVideos(videos);
+        });
+    }, [youtube]);
 
   useEffect(() => {
-    //포스트맨 Most Popular API 불러오기
     youtube
       .mostPopular()//
       .then(videos => setVideos(videos));
-  }, []);
+  }, [youtube]);
   return (
     <div className={styles.app}>
       <SearchHeader onSearch={search} />
