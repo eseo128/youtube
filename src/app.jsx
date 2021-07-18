@@ -13,10 +13,14 @@ function App({youtube}) {
   }
 
   const search = query => {
+    setSelectedVideo(null); // 동영상을 선택해서 보고있을 때 화면에서 또 다른 검색하면 이전 리스트 모양으로 돌아가기
     //포스트맨 search API 불러오기
     youtube
       .search(query)//
-      .then(videos => setVideos(videos));
+      .then(videos => {
+        setVideos(videos);
+        
+      });
   };
 
   useEffect(() => {
