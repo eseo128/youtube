@@ -21,6 +21,7 @@
 - API를 불러오는 통신(service)과 View 컴포넌트 분리
 - API Key를 숨기기 위해 .env 파일 사용
 - PostCSS로 CSS 스타일링 모듈화
+- Netlify로 배포하기 (깃허브 페이지보다 훨씬 사용범위가 넓었고 yarn을 통해 쉽게 배포할 수 있다)
 
 # Functions
 
@@ -30,7 +31,8 @@
 - 동영상 재생과 동영상의 제목 및 설명을 가져와 화면에 제시한다<br>
 - 새로운 동영상을 검색할 시 이전 화면으로 돌아간다<br>
 - 반응형 페이지로 만든다<br>
-- 배포 사이트 : https://eseo128.github.io/youtube/
+- 
+- 배포 사이트 : https://60f5551adf12b9d8e38c6c3b--es-youtube-site.netlify.app
 
 # images
 ![youtube](https://user-images.githubusercontent.com/34049770/126078296-8e1f33a0-00eb-464d-97ca-5944c014d813.png)
